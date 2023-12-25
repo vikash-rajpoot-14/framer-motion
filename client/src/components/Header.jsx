@@ -32,7 +32,7 @@ export default function Header() {
     <header className='bg-slate-200 shadow-md sticky top-0'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
-        <motion.h1 animate={{rotateZ:180,marginTop:20,y:40,x:50,fontSize:50,scale:2}} className='font-bold text-sm sm:text-xl flex flex-wrap'>
+        <motion.h1 initial={{y:-150,opacity:0}} animate={{y:0,opacity:1}} className='font-bold text-sm sm:text-xl flex flex-wrap'>
           <span className='text-slate-500'>Purezza</span>
           <span className='text-slate-700'>Technologies</span>
         </motion.h1>
@@ -46,7 +46,7 @@ export default function Header() {
             />
           }
           {currentUser ? <li onClick={handleSignOut} className='hover:cursor-pointer text-slate-700 hover:underline'> Sign Out</li> : (
-            <motion.div animate={{x:-50}} className='flex gap-8'>
+            <motion.div initial={{y:-150,opacity:0}} animate={{y:0,opacity:1}} className='flex gap-8'>
               <Link to='/signup'>
                 <li className='hidden sm:inline text-slate-700 hover:underline'>
                   Sign Up
