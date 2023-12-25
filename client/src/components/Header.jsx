@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOutUserFailure, signOutUserStart, signOutUserSuccess } from '../redux/user/userSlice';
+import {motion} from "framer-motion";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -31,10 +32,10 @@ export default function Header() {
     <header className='bg-slate-200 shadow-md sticky top-0'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
-        <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
+        <motion.h1 animate={{rotateZ:180,marginTop:20,y:40,x:50,fontSize:50,scale:2}} className='font-bold text-sm sm:text-xl flex flex-wrap'>
           <span className='text-slate-500'>Purezza</span>
           <span className='text-slate-700'>Technologies</span>
-        </h1>
+        </motion.h1>
         </Link>
         <ul className='flex gap-4'>
           {currentUser &&
@@ -45,7 +46,7 @@ export default function Header() {
             />
           }
           {currentUser ? <li onClick={handleSignOut} className='hover:cursor-pointer text-slate-700 hover:underline'> Sign Out</li> : (
-            <div className='flex gap-8'>
+            <motion.div animate={{x:-50}} className='flex gap-8'>
               <Link to='/signup'>
                 <li className='hidden sm:inline text-slate-700 hover:underline'>
                   Sign Up
@@ -56,7 +57,7 @@ export default function Header() {
                   Sign In
                 </li>
               </Link>
-            </div>
+            </motion.div>
             )}
         </ul>
       </div>
