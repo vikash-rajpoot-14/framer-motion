@@ -29,10 +29,19 @@ export default function Header() {
   }
 
   return (
-    <header className='bg-slate-200 shadow-md sticky top-0'>
+    <motion.header
+    // initial={{y:-150,opacity:0}}
+    // animate={{y:0,opacity:1}}
+    //   transition={{delay:0.2,duration:0.5,type:"inertia",stiffness:200}} 
+
+     className='bg-slate-200 shadow-md sticky top-0'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
-        <motion.h1 initial={{y:-150,opacity:0}} animate={{y:0,opacity:1}} className='font-bold text-sm sm:text-xl flex flex-wrap'>
+        <motion.h1 
+        initial={{y:-150,opacity:0}} 
+        animate={{y:0,opacity:1}}
+        transition={{delay:0.2,duration:0.5,type: 'spring',stiffness:120}}
+         className='font-bold text-sm sm:text-xl flex flex-wrap'>
           <span className='text-slate-500'>Purezza</span>
           <span className='text-slate-700'>Technologies</span>
         </motion.h1>
@@ -46,7 +55,10 @@ export default function Header() {
             />
           }
           {currentUser ? <li onClick={handleSignOut} className='hover:cursor-pointer text-slate-700 hover:underline'> Sign Out</li> : (
-            <motion.div initial={{y:-150,opacity:0}} animate={{y:0,opacity:1}} className='flex gap-8'>
+            <motion.div 
+            initial={{y:-150,opacity:0}}
+             animate={{y:0,opacity:1}}
+               transition={{delay:0.2,duration:0.5,type:"tween",stiffness:120}} className='flex gap-8'>
               <Link to='/signup'>
                 <li className='hidden sm:inline text-slate-700 hover:underline'>
                   Sign Up
@@ -61,6 +73,6 @@ export default function Header() {
             )}
         </ul>
       </div>
-    </header>
+    </motion.header>
   );
 }
