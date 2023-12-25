@@ -60,14 +60,18 @@ export default function Header() {
              animate={{y:0,opacity:1}}
                transition={{delay:0.2,duration:0.5,type:"tween",stiffness:120}} className='flex gap-8'>
               <Link to='/signup'>
-                <li className='hidden sm:inline text-slate-700 hover:underline'>
+                <motion.li 
+                whileHover={{scale:1.5,borderWidth:2,textDecoration:"none",boxShadow:"2px 2px 2px black"}} 
+                className='hidden sm:inline text-slate-700 '>
                   Sign Up
-                </li>
+                </motion.li>
               </Link>
               <Link to='/signin'>
-                <li className='hidden sm:inline text-slate-700 hover:underline'>
+                <motion.li 
+                whileHover={{scale:1.5,borderWidth:2,textDecoration:"none",boxShadow:"2px 2px 2px black"}} 
+                className='hidden sm:inline text-slate-700 '>
                   Sign In
-                </li>
+                </motion.li>
               </Link>
             </motion.div>
             )}
